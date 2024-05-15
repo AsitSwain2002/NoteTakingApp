@@ -1,0 +1,109 @@
+@charset "ISO-8859-1";
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: black;
+}
+header{
+    height: 6vh;
+    width: 100%;
+    background-color: bisque;
+}
+main{
+    min-height: 90vh;
+}
+.mainContainer{
+    min-height: 65vh;
+    width: 30%;
+    border: 1px solid greenyellow;
+    position: relative;
+    transform: translate(-50%,5%);
+    left: 50%;
+    background-color: rgba(81, 73, 73, 0.35);
+    border-radius: 10px;
+    /* display: flex;
+    justify-content: center; */
+}
+.mainContainer a{
+	text-decoration: none;
+}
+.search{
+    width: 80%;
+    margin: 10px 5px 0 10px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: transparent;
+    color: greenyellow;
+    padding-left: 15px;
+    font-size: 18px;
+    font-family: "Exo 2", sans-serif;
+    outline: none;
+    border: 3px solid rgb(29, 85, 3);
+}
+.note{
+    background-color: rgb(15, 14, 14);
+    min-height: 40vh;
+    width: 97%;
+    border: 1px solid black;
+    margin: 15px 0 20px 5px;
+    /* padding: 20px 20px; */
+    font-size: 1.1em;
+    font-family: "Exo 2", sans-serif;
+    color: white;
+    border-radius: 10px;
+    outline: none;
+    padding: 15px 15px;
+}
+.back{
+	height: 40px;
+	width: 80px;
+	margin: 0 0 20px 20px;
+	border: 1px solid rgb(136, 193, 108);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 16px;
+	
+}
+.back1{
+	height: 40px;
+	width: 80px;
+	margin: 0 20px 20px 0px;
+	border: 1px solid rgb(136, 193, 108);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 16px;
+	font-size: 18px;
+}
+.back1 a{
+    text-decoration: none;
+    color: greenyellow;
+}
+.backAndDelete{
+display: flex;
+align-items: center;
+justify-content: space-between;
+width: 100%;
+
+}
+.ri-arrow-left-fill{
+	font-size: 30px;
+	color: greenyellow;
+}
+.submit{
+    height: 6vh;
+    width: 80%;
+    background-color: black;
+    color: greenyellow;
+    font-size: 1.1em;
+    font-family: "Exo 2", sans-serif;
+    border: 1px solid greenyellow;
+    border-radius: 20px;
+    position: relative;
+    margin-left: 10%;
+    margin-bottom: 20px;
+}

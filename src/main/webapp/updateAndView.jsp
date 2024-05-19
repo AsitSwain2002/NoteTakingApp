@@ -1,3 +1,4 @@
+<%@page import="com.Dto.User"%>
 <%@page import="com.Dto.Note"%>
 <%@page import="com.noteDao.NoteDao"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -17,12 +18,13 @@
 </head>
 
 <body>
-	<header>
-		<nav></nav>
-	</header>
+	<%@ include file="components/header.jsp"%>
 	<main>
 		<div class="mainContainer">
 			<%
+			
+            User user = (User)session.getAttribute("user");
+            if(user != null){
 			String idParam = request.getParameter("id");
 			int id = Integer.parseInt(idParam);
 			NoteDao ndo = new NoteDao();
@@ -40,12 +42,19 @@
 					<div class="back1">
 						<a href="deleteNote?id=<%= note.getId()%>">Delete</a>
 					</div> 
+					<input type="hidden" name="id" value="<%= note.getId()%>">
                 </div>
 					<input type="submit" value="Modify" class="submit">
             </form>
         </div>
 
 	</main>
+	<%
+			}
+			else{
+				response.sendRedirect("login.jsp");
+			}
+	%>
 </body>
 
 </html>

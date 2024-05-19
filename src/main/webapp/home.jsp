@@ -15,19 +15,20 @@
 	href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
 	rel="stylesheet" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
+<title>Note</title>
 </head>
 
 <body>
-	<header>
-		<nav></nav>
-	</header>
+	<%@ include file="components/header.jsp"%>
 	<main>
 		<div class="mainContainer">
 			<%
+			User user = (User)session.getAttribute("user");
+			if(user != null)
+			{
 			NoteDao ndo = new NoteDao();
-			List<Note> note = ndo.fetchAllNotes();
-			if (ndo != null && note != null) {
+			List<Note> note = ndo.fetchAllNotes(user.getId());
+			if ( note != null) {
 				for (Note n : note) {
 			%>
 			<a href="updateAndView.jsp?id=<%= n.getId()%>" class="anchor"><div
@@ -44,6 +45,12 @@
 			</a>
 		</div>
 	</main>
+	<%
+			}
+			else{
+				response.sendRedirect("login.jsp");
+			}
+	%>
 </body>
 
 </html>

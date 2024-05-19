@@ -24,12 +24,13 @@ public class NoteDao {
 		et.commit();
 		
 	}
-	public List fetchAllNotes()
+	public List fetchAllNotes(int userId)
 	{
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Asit");
 		EntityManager em = emf.createEntityManager();
 		
-		Query query = em.createQuery("select a from Note a");
+        Query query = em.createQuery("SELECT n FROM Note n WHERE n.user.id = :userId");
+        query.setParameter("userId", userId);
 		List list = query.getResultList();
 		
 		return list;

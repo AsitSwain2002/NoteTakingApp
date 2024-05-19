@@ -18,7 +18,9 @@
 </head>
 
 <body>
-	<%@ include file="components/navbar.jsp"%>
+	<header>
+		<nav></nav>
+	</header>
 	<main>
 		<div class="mainContainer">
 			<div class="subContainer1">

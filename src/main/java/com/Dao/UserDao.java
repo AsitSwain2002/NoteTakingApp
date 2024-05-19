@@ -43,14 +43,6 @@ public class UserDao {
 
 	}
 
-	public List<User> fetchAllUser() {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Asit");
-		EntityManager em = emf.createEntityManager();
-
-		Query query = em.createQuery("select a from User a");
-		List rl = query.getResultList();
-		return rl;
-	}
 
 	public User fetchUserById(int id) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Asit");
@@ -61,45 +53,6 @@ public class UserDao {
 
 	}
 
-	public void updateUserDetails(int id, String name, int age, long mobile, String email) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Asit");
-		EntityManager em = emf.createEntityManager();
-		EntityTransaction et = em.getTransaction();
-		User user = em.find(User.class, id);
-		if (user != null) {
-			et.begin();
-			user.setName(name);
-			user.setAge(age);
-			user.setMobile(mobile);
-			user.setEmail(email);
-			em.merge(user);
-			et.commit();
-		}
-	}
 
-	public void updatePas(int id ,String newPas) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Asit");
-		EntityManager em = emf.createEntityManager();
-		EntityTransaction et = em.getTransaction();
-
-		User user = em.find(User.class, id);
-		user.setPassword(newPas);
-		et.begin();
-		em.merge(user);
-		et.commit();
-
-	}
-	public void deleteUser(int id)
-	{
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Asit");
-		EntityManager em = emf.createEntityManager();
-		EntityTransaction et = em.getTransaction();
-		
-		User user = em.find(User.class, id);
-		
-		et.begin();
-		em.remove(user);
-		et.commit();
-	}
 
 }

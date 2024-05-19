@@ -13,7 +13,9 @@
 </head>
 
 <body>
-	<%@ include file="components/indexnavbar.jsp"%>
+	<header>
+		<nav></nav>
+	</header>
 	<main>
 		<div class="MainContainer">
 			<div class="subContainer1">

@@ -24,9 +24,7 @@ public class User {
 	private long mobile;
 	private String email;
 	private String password;
-	@Column(name = "Notes")
-	private String note;
+
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<Note> notes;  
-	
 }
